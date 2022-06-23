@@ -1,0 +1,15 @@
+D:\dbms\VacSlotBookingApi\Business\bin\Debug\netcoreapp3.1\Business.deps.json
+D:\dbms\VacSlotBookingApi\Business\bin\Debug\netcoreapp3.1\Business.dll
+D:\dbms\VacSlotBookingApi\Business\bin\Debug\netcoreapp3.1\Business.pdb
+D:\dbms\VacSlotBookingApi\Business\bin\Debug\netcoreapp3.1\Domain.dll
+D:\dbms\VacSlotBookingApi\Business\bin\Debug\netcoreapp3.1\Repository.dll
+D:\dbms\VacSlotBookingApi\Business\bin\Debug\netcoreapp3.1\Domain.pdb
+D:\dbms\VacSlotBookingApi\Business\bin\Debug\netcoreapp3.1\Repository.pdb
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.csproj.AssemblyReference.cache
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfoInputs.cache
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.AssemblyInfo.cs
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.csproj.CoreCompileInputs.cache
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.csproj.CopyComplete
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.dll
+D:\dbms\VacSlotBookingApi\Business\obj\Debug\netcoreapp3.1\Business.pdb
