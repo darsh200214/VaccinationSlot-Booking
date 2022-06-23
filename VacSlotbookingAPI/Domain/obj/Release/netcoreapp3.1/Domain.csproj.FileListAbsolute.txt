@@ -1,0 +1,10 @@
+D:\dbms\VacSlotBookingApi\Domain\bin\Release\netcoreapp3.1\Domain.deps.json
+D:\dbms\VacSlotBookingApi\Domain\bin\Release\netcoreapp3.1\Domain.dll
+D:\dbms\VacSlotBookingApi\Domain\bin\Release\netcoreapp3.1\Domain.pdb
+D:\dbms\VacSlotBookingApi\Domain\obj\Release\netcoreapp3.1\Domain.csproj.AssemblyReference.cache
+D:\dbms\VacSlotBookingApi\Domain\obj\Release\netcoreapp3.1\Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\dbms\VacSlotBookingApi\Domain\obj\Release\netcoreapp3.1\Domain.AssemblyInfoInputs.cache
+D:\dbms\VacSlotBookingApi\Domain\obj\Release\netcoreapp3.1\Domain.AssemblyInfo.cs
+D:\dbms\VacSlotBookingApi\Domain\obj\Release\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
+D:\dbms\VacSlotBookingApi\Domain\obj\Release\netcoreapp3.1\Domain.dll
+D:\dbms\VacSlotBookingApi\Domain\obj\Release\netcoreapp3.1\Domain.pdb

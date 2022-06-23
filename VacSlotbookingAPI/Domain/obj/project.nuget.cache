@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "1qQ7ZwxeZklJA4oOrCBNJhkwEaejeeFWiqQbtAYqWZVKTTGVUoHvtta7KGCNR+covw2SkXnz2yXX2qixEUxudg==",
+  "success": true,
+  "projectFilePath": "D:\\dbms\\VacSlotBookingApi\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\csvhelper\\12.2.1\\csvhelper.12.2.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.reflection.typeextensions\\4.4.0\\system.reflection.typeextensions.4.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
