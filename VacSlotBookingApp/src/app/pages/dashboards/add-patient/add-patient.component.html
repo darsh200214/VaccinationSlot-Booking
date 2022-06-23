@@ -1,0 +1,103 @@
+<section class="section" style="padding-top: 0px !important;" id="package">
+    <div class="container">
+        <div class="row">
+            <!-- <h4>Hospital Name : {{hospitalName}}.</h4>&nbsp;&nbsp;&nbsp;
+            <h4>Bed Type : {{bedType}}</h4> -->
+            <div class="col-xl-12">
+                <form class="form-horizontal" name="patientAdmitForm" [formGroup]="patientAdmitForm"
+                    (ngSubmit)="onSubmit()" novalidate>
+                    <div class="form-group row mb-3">
+                        <label class="col-md-3 col-form-label">Name</label>
+                        <div class="col-md-9">
+                            <input class="form-control" formControlName="patientName" name="patientName" type="text"
+                                placeholder="Enter Name"
+                                [ngClass]="{'is-invalid': submitted && f.patientName.errors}">
+                            <div *ngIf="submitted && f.patientName.errors" class="invalid-feedback">
+                                <span *ngIf="f.patientName.errors.required">This value is required.</span>
+                                <span *ngIf="f.patientName.errors.maxlength">This value is too long. It
+                                    should have 100
+                                    characters or fewer.</span>
+                                <span *ngIf="f.patientName.errors.minlength">Name must be at least
+                                    3
+                                    characters.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label class="col-md-3 col-form-label">Gender</label>
+                        <div class="col-md-9">
+                            <select class="form-control" formControlName="gender"
+                                [ngClass]="{'is-invalid': submitted && f.gender.errors}">
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+
+                            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                                <span *ngIf="f.gender.errors.required">This value is
+                                    required.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        <label class="col-md-3 col-form-label">Age</label>
+                        <div class="col-md-9">
+                            <input class="form-control" formControlName="age" name="age" type="text"
+                                placeholder="Enter age" [ngClass]="{'is-invalid': submitted && f.age.errors}">
+
+                            <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                                <span *ngIf="f.age.errors.required">This value is
+                                    required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3">
+                        <label class="col-md-3 col-form-label">Contact Number</label>
+                        <div class="col-md-9">
+                            <input class="form-control" formControlName="contactNo" name="contactNo" type="text"
+                                placeholder="Enter contact number"
+                                [ngClass]="{'is-invalid': submitted && f.contactNo.errors}">
+
+                            <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                                <span *ngIf="f.contactNo.errors.required">This value is
+                                    required.</span>
+                                <span *ngIf="f.contactNo.errors.minlength || f.contactNo.errors.maxlength">Enter
+                                    10 digit mobile number</span>
+                                <span *ngIf="f.contactNo.errors.pattern">This value should be a
+                                    valid Phone number.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-3">
+                        <label class="col-md-3 col-form-label">Address</label>
+                        <div class="col-md-9">
+                            <input class="form-control" formControlName="address" name="address" type="text"
+                                placeholder="Enter address" [ngClass]="{'is-invalid': submitted && f.address.errors}">
+
+                            <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                                <span *ngIf="f.address.errors.required">This value is
+                                    required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row mb-3">
+                        <label class="col-md-3 col-form-label">Description</label>
+                        <div class="col-md-9">
+                            <input class="form-control" formControlName="description" name="description" type="text"
+                                placeholder="Enter description"
+                                [ngClass]="{'is-invalid': submitted && f.description.errors}">
+
+                            <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                <span *ngIf="f.description.errors.required">This value is
+                                    required.</span>
+                            </div>
+                        </div>
+                    </div> -->
+                    <button class="btn btn-primary" type="button" (click)="goBack()">Back</button>
+                    <button class="btn btn-primary float-right" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

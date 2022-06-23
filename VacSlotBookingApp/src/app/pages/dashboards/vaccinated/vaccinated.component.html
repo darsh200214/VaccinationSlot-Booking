@@ -1,0 +1,82 @@
+<div class="row" *ngIf="userId==1">                
+    <div class="form-group row mb-3">
+        <label class="col-md-5 col-form-label">Booking Date:</label>
+        <div class="col-md-7">
+            <input type="date" [(ngModel)]="slotDate" (change)="getAllPatientRecords()" min="{{curDate | date:'yyyy-MM-dd'}}"/>
+        </div>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="form-group row mb-3">
+        <label class="col-md-4 col-form-label">Hospitals:</label>
+        <div class="col-md-8">
+            <select class="form-control" [(ngModel)]="hospitalId" (change)="getAllPatientRecords()">
+                <option value="0">Select</option>
+                <option *ngFor="let item of hospitalList" [value]="item.id">
+                    {{item.hospitalName}}</option>
+            </select>
+        </div>
+    </div>
+    &nbsp;&nbsp;&nbsp;
+    <div class="form-group row mb-3">
+        <label class="col-md-4 col-form-label">Slots:</label>
+        <div class="col-md-8">
+            <select class="form-control" [(ngModel)]="slotId" (change)="getAllPatientRecords()">
+                <option value="0">Select</option>
+                <option *ngFor="let item of slotList" [value]="item.id">
+                    {{item.slotTime}}</option>
+            </select>
+        </div>
+    </div> 
+  </div>
+  <div class="table-responsive">
+      <table class="table mb-0">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Contact Number</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Hospital</th>
+            <th>Slot Date</th>
+            <th>Slot Time</th>
+            <th>Address</th>
+            <!-- <th>Description</th>        
+            <th>Status</th>-->
+            <!-- <th>Action</th>  -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let patient of patientList; let i=index;">
+            <th scope="row">{{i+1}}</th>
+            <td>{{patient.patientName}}</td>
+            <td>{{patient.contactNo}}</td>
+            <td>{{patient.gender}}</td>
+            <td>{{patient.age}}</td>
+            <td>{{patient.hospitalName}}</td>
+            <td>{{patient.slotDate | date:'dd-MM-yyyy'}}</td>
+            <td>{{patient.slotTime}}</td>
+            <td>{{patient.address}}</td>
+            <!-- <td>{{patient.description}}</td>        
+            <td>
+              <ng-container *ngIf="patient.isActive">
+                Admitted on {{patient.createdDate | date:'dd/MM/yyyy HH:mm'}}
+              </ng-container>
+              <ng-container *ngIf="!patient.isActive">
+                Discharged on {{patient.modifiedDate | date:'dd/MM/yyyy HH:mm'}}
+              </ng-container>
+            </td>-->
+            <!-- <td>
+              <ng-container *ngIf="patient.isActive">
+                <button class="btn btn-primary" (click)="onDischarge(patient.id)">Vaccinated</button>
+              </ng-container>
+            </td>  -->
+    
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center"
+      *ngIf="noRecordsFound && patientList.length == 0">
+      <div class="fontColor font-16-600 mt-2">No records found</div>
+    </div>

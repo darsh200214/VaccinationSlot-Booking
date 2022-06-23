@@ -1,0 +1,57 @@
+<section class="section" style="padding-top: 0px !important;" id="package">
+  <div class="container">
+      <div class="row">
+          <div class="col-xl-12">
+              <div class="row">                
+                <div class="form-group row mb-3">
+                    <label class="col-md-5 col-form-label">Booking Date:</label>
+                    <div class="col-md-7">
+                        <input type="date" [(ngModel)]="slotDate" (change)="getSlotList()" min="{{curDate | date:'yyyy-MM-dd'}}"/>
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="form-group row mb-3">
+                    <label class="col-md-4 col-form-label">Hospitals:</label>
+                    <div class="col-md-8">
+                        <select class="form-control" [(ngModel)]="hospitalId" (change)="getSlotList()">
+                            <option value="0">Select</option>
+                            <option *ngFor="let item of hospitalList" [value]="item.id">
+                                {{item.hospitalName}}</option>
+                        </select>
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;
+                <div class="form-group row mb-3">
+                    <label class="col-md-4 col-form-label">Slots:</label>
+                    <div class="col-md-8">
+                        <select class="form-control" [(ngModel)]="slotId" (change)="getSlotList()">
+                            <option value="0">Select</option>
+                            <option *ngFor="let item of slotList" [value]="item.id">
+                                {{item.slotTime}}</option>
+                        </select>
+                    </div>
+                </div> 
+              </div>
+              <div class="row">
+                  <label class="col-md-3" *ngFor="let package of hospitalSlotList; let i=index;">
+                      <input type="radio" name="package" class="card-input-element d-none" [value]="i">
+                      <div class="card mini-stats-wid">
+                          <div class="card-body">
+                              <div class="media">
+                                  <div class="media-body">
+                                      <p class="text-muted font-weight-medium">{{package.hospitalName}}</p>
+                                      <p class="text-muted font-weight-medium">{{package.slotTime}}</p>
+                                      <h6 class="mb-0">Total Count : {{package.perSlotCount}}</h6>
+                                      <h4 class="mb-0">Available : {{package.perSlotCount-package.filledCount}}</h4>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- end card-body -->
+                      </div>
+                  </label>
+              </div>
+              <button *ngIf="hospitalSlotList.length>0" class="btn btn-primary float-right" type="button" (click)="next()">Next</button>
+          </div>
+      </div>
+  </div>
+</section>

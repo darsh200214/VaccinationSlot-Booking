@@ -1,0 +1,38 @@
+<!-- ========== Left Sidebar Start ========== -->
+
+<ng-template #contentTemplate>
+  <!--- Sidemenu -->
+  <div id="sidebar-menu">
+    <!-- Left Menu Start -->
+    <ul class="metismenu list-unstyled" id="side-menu" #sideMenu>
+
+      <ng-container>
+        <li>
+          <a class="side-nav-link-ref" aria-expanded="false" [routerLink]="['/dashboard']" routerLinkActive="active">
+            <i class="bx bx-home-circle"></i><span> Dashboard</span></a>
+        </li>
+        <li>
+          <a class="side-nav-link-ref" aria-expanded="false" [routerLink]="['/dashboard/patient-list']" routerLinkActive="active">
+            <i class="bx bx-home-circle"></i><span> Bookings</span></a>
+        </li> 
+        <li>
+          <a class="side-nav-link-ref" aria-expanded="false" [routerLink]="['/dashboard/done-list']" routerLinkActive="active">
+            <i class="bx bx-home-circle"></i><span> Vaccinated</span></a>
+        </li> 
+      </ng-container>
+    </ul>
+  </div>
+</ng-template>
+<!-- Sidebar -->
+
+<div class="vertical-menu">
+  <perfect-scrollbar [config]="configData">
+    <div *ngIf="!isCondensed">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+    <div *ngIf="isCondensed">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+  </perfect-scrollbar>
+</div>
+<!-- Left Sidebar End -->

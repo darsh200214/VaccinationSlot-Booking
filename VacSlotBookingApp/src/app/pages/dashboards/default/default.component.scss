@@ -1,0 +1,13 @@
+.card-input-element+.card:hover {
+    cursor: pointer;
+  }
+  
+  .card-input-element:checked+.card {
+    border: 2px solid var(--primary);
+    -webkit-transition: border .3s;
+    -o-transition: border .3s;
+    transition: border .3s;
+  }
+  .card-body{
+      background-color: #00f3ff;
+  }

@@ -1,0 +1,194 @@
+<header id="page-topbar">
+  <div class="navbar-header">
+    <div class="d-flex">
+      <!-- LOGO -->
+      <!-- <div class="navbar-brand-box">
+         <a routerLink="/" class="logo logo-dark">
+          <span class="logo-sm">
+            <img src="assets/images/logo-dark.png" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-dark.png" alt="" height="17">
+          </span>
+        </a>
+
+        <a routerLink="/" class="logo logo-light">
+          <span class="logo-sm">
+            <img src="assets/images/logo-dark.png" alt="" height="22">
+          </span>
+          <span class="logo-lg">
+            <img src="assets/images/logo-dark.png" alt="" height="19">
+          </span>
+        </a>
+      </div> -->
+
+      <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item" (click)="toggleMenubar()">
+        <i class="fa fa-fw fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="d-flex">
+      <!-- <div class="dropdown d-inline-block" ngbDropdown>
+        <button type="button" class="btn header-item" ngbDropdownToggle>
+          <span class="align-middle">{{'Language'|translate}}</span>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+          <a href="javascript: void(0);" (click)="switchLang('en')" class="dropdown-item notify-item">
+            <span class="align-middle">English</span>
+          </a>
+          <a href="javascript: void(0);" (click)="switchLang('kn')" class="dropdown-item notify-item">
+            <span class="align-middle">ಕನ್ನಡ</span>
+          </a>
+        </div>
+      </div> -->
+      <div class="dropdown d-none d-lg-inline-block ml-1">
+        <button type="button" class="btn header-item noti-icon" data-toggle="fullscreen" (click)="fullscreen()">
+          <i class="bx bx-fullscreen"></i>
+        </button>
+      </div>
+
+      <div class="dropdown d-inline-block" ngbDropdown>
+        <button type="button" class="btn header-item" ngbDropdownToggle id="page-header-user-dropdown">
+          <span *ngIf="userImage != 'null'"><img class="rounded-circle header-profile-user" src="{{userImage}}"></span>
+          <span *ngIf="userImage == 'null'"><i class="fas fa-user"></i></span>
+          <span class="d-none d-xl-inline-block ml-1">{{userName}}</span>
+          <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+          <!-- item-->
+          <a class="dropdown-item" [routerLink]="['/users/view/',userID]"><i
+              class="bx bx-user font-size-16 align-middle mr-1"></i>
+            Profile</a>
+          <a class="dropdown-item" [routerLink]="['/changepassword']"><i
+              class="bx bx-wallet font-size-16 align-middle mr-1"></i>
+            Change Password</a>
+          <!-- <a class="dropdown-item d-block" href="javascript: void(0);"><span
+              class="badge badge-success float-right"><b style="font-size:11pt;">{{walletAmount}}</b></span><i
+              class="bx bx-wallet font-size-16 align-middle mr-1"></i> My Wallet</a> -->
+          <a class="dropdown-item" [routerLink]="['/users/updateaddress']"><i
+              class="bx bx-wallet font-size-16 align-middle mr-1"></i>
+            Change Address</a>
+          <a class="dropdown-item" [routerLink]="['/users/updatebankdetails']"><i
+              class="bx bx-wallet font-size-16 align-middle mr-1"></i>
+            Change Bank Details</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item text-danger" href="javascript: void(0);" (click)="logout()"><i
+              class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="topnav">
+  <div class="container-fluid">
+    <nav class="navbar navbar-light navbar-expand-lg topnav-menu active">
+      <div class="collapse navbar-collapse active" id="topnav-menu-content">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="active" role="button">
+              <i class="bx bx-home-circle mr-2"></i>Dashboard
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="authService.getRoleName()=='Admin' || authService.getRoleName()=='CEO'
+          || authService.getRoleName()=='Publisher'
+          || authService.getRoleName()=='Zonal Manager'
+          || authService.getRoleName()=='District Manager'">
+            <a class="nav-link" [routerLink]="['/desendentUserList']" routerLinkActive="active" role="button">
+              <i class="bx bx-store mr-2"></i>Team Members
+            </a>
+          </li>
+          <li class="nav-item dropdown"
+            *ngIf="authService.getRoleName()=='Admin'">
+            <a class="nav-link dropdown-toggle arrow-none" href="javascript:void(0);" role="button"
+              (click)="onMenuClick($event)" id="topnav-gallery">
+              <i class="bx bx-list-ul mr-2"></i>Gallery <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu row" aria-labelledby="topnav-gallery">
+              <a *ngIf="authService.getRoleName()=='Admin' || authService.getRoleName()=='CEO'|| authService.getRoleName()=='Publisher'"
+                [routerLink]="['/photos']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Photos</a>
+              <a *ngIf="authService.getRoleName()=='Admin' || authService.getRoleName()=='CEO'|| authService.getRoleName()=='Publisher'"
+                [routerLink]="['/videos']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Videos</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle arrow-none" href="javascript:void(0);" role="button"
+              (click)="onMenuClick($event)" id="topnav-edting">
+              <i class="bx bx-list-ul mr-2"></i>Editing <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu row" aria-labelledby="topnav-edting">
+              <a [routerLink]="['/editing/article-section']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Articles</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown"
+            *ngIf="authService.getRoleName()=='Admin' || authService.getRoleName()=='Publisher' || authService.getRoleName()=='CEO' || authService.getRoleName()=='Honorable Editor' || authService.getRoleName()=='Chief Editor' || authService.getRoleName()=='Co-Editor' || authService.getRoleName()=='Distribution Manager' || authService.getRoleName()=='HR Manager' || authService.getRoleName()=='Programing Manager' || authService.getRoleName()=='Add Manager' || authService.getRoleName()=='Marketing Team Manager' || authService.getRoleName()=='Marketing Development Manager' || authService.getRoleName()=='Trust Director-1' || authService.getRoleName()=='Trust Director-2' || authService.getRoleName()=='Trust Director-3' || authService.getRoleName()=='Trust Director-4' || authService.getRoleName()=='Trust Director-5' || authService.getRoleName()=='Trust Director-6' || authService.getRoleName()=='Trust Director-7' || authService.getRoleName()=='Trust Director-8'">
+            <a class="nav-link dropdown-toggle arrow-none" href="javascript:void(0);" role="button"
+              (click)="onMenuClick($event)" id="topnav-users">
+              <i class="bx bx-list-ul mr-2"></i>Users <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu row" aria-labelledby="topnav-users">
+              <a *ngIf="authService.getRoleName()=='Admin' || authService.getRoleName()=='Publisher' || authService.getRoleName()=='CEO' || authService.getRoleName()=='Honorable Editor' || authService.getRoleName()=='Chief Editor' || authService.getRoleName()=='Co-Editor' || authService.getRoleName()=='Distribution Manager' || authService.getRoleName()=='HR Manager' || authService.getRoleName()=='Programing Manager' || authService.getRoleName()=='Add Manager' || authService.getRoleName()=='Marketing Team Manager' || authService.getRoleName()=='Marketing Development Manager' || authService.getRoleName()=='Trust Director-1' || authService.getRoleName()=='Trust Director-2' || authService.getRoleName()=='Trust Director-3' || authService.getRoleName()=='Trust Director-4' || authService.getRoleName()=='Trust Director-5' || authService.getRoleName()=='Trust Director-6' || authService.getRoleName()=='Trust Director-7' || authService.getRoleName()=='Trust Director-8'"
+                [routerLink]="['/users/list']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Existing Users</a>
+              <a *ngIf="authService.getRoleName()=='Admin'"
+                [routerLink]="['/users/create']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Create User</a>
+              <!-- <a *ngIf="authService.getRoleName()=='Admin'"
+                [routerLink]="['/users/zonalmanager']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Zonal Managers</a>
+              <a *ngIf="authService.getRoleName()=='Admin'"
+                [routerLink]="['/users/districtmanager']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">District Managers</a>
+              <a *ngIf="authService.getRoleName()=='Admin'"
+                [routerLink]="['/users/executive']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Executives</a> -->
+            </div>
+          </li>
+          <li class="nav-item dropdown" *ngIf="authService.getRoleName()!='Writter'&&authService.getRoleName()!='Schools'&&authService.getRoleName()!='Artist'
+          &&authService.getRoleName()!='Organization'&&authService.getRoleName()!='Public'">
+            <a class="nav-link dropdown-toggle arrow-none" href="javascript:void(0);" role="button"
+              (click)="onMenuClick($event)" id="topnav-sub">
+              <i class="bx bx-list-ul mr-2"></i>Subscriptions <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu row" aria-labelledby="topnav-sub">
+              <a [routerLink]="['/directSubscription']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Direct Subscriptions</a>
+              <a *ngIf="authService.getRoleName()=='Subscriber'" [routerLink]="['/mySubscription/'+userID]"
+                routerLinkActive="active" class="col dropdown-item side-nav-link-ref">My Subscriptions</a>
+              <a *ngIf="authService.getRoleName()=='Admin'" [routerLink]="['/subscriptionlist']"
+                routerLinkActive="active" class="col dropdown-item side-nav-link-ref">Payment Transactions</a>
+              <a *ngIf="authService.getRoleName()=='Admin' || authService.getRoleName()=='CEO'|| authService.getRoleName()=='Publisher'
+                || authService.getRoleName()=='Honorable Editor' || authService.getRoleName()=='Chief Editor' || authService.getRoleName()=='Co-Editor' 
+                ||authService.getRoleName()=='Distribution Manager' || authService.getRoleName()=='HR Manager'|| authService.getRoleName()=='Programing Manager'
+                ||authService.getRoleName()=='Add Manager' || authService.getRoleName()=='Marketing Team Manager'|| authService.getRoleName()=='Marketing Development Manager'
+                ||authService.getRoleName()=='Zonal Manager' || authService.getRoleName()=='District Manager'"
+                [routerLink]="['/AllSubscription']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Subscriptions List</a>
+              <!-- <a *ngIf="authService.getRoleName()=='Admin' || authService.getRoleName()=='CEO'|| authService.getRoleName()=='Publisher'
+                || authService.getRoleName()=='Honorable Editor' || authService.getRoleName()=='Chief Editor' || authService.getRoleName()=='Co-Editor'
+                ||authService.getRoleName()=='Distribution Manager' || authService.getRoleName()=='HR Manager'|| authService.getRoleName()=='Programing Manager'
+                ||authService.getRoleName()=='Add Manager' || authService.getRoleName()=='Marketing Team Manager'|| authService.getRoleName()=='Marketing Development Manager'
+                ||authService.getRoleName()=='Zonal Manager' || authService.getRoleName()=='District Manager'"
+                [routerLink]="['/subscriberList']" routerLinkActive="active"
+                class="col dropdown-item side-nav-link-ref">Subscribers List</a> -->
+            </div>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle arrow-none" [routerLink]="['/dashboard']" routerLinkActive="active"
+              role="button" (click)="onMenuClick($event)" id="topnav-layout">
+              <i class="bx bx-layout mr-2"></i>Dashboard <div class="arrow-down"></div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="topnav-layout">
+              <a href="javascript: void(0);" class="dropdown-item" (click)="changeLayout('vertical')">Vertical</a>
+              <a href="javascript: void(0);" class="dropdown-item" (click)="topbarLight()">Topbar light</a>
+              <a href="javascript: void(0);" class="dropdown-item" (click)="boxedWidth()">Boxed width</a>
+              <a href="javascript: void(0);" class="dropdown-item" (click)="coloredHeader()">Colored Header</a>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

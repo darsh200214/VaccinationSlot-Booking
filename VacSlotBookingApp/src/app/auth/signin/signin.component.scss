@@ -1,0 +1,9 @@
+@import "../../variables.scss";
+.ban6{
+    @include mobile{
+        height:170px;
+    }
+    @include tablet{
+        height:170px;
+    }
+}
