@@ -32,4 +32,18 @@ Screenshots:
 
 
  ![image](https://user-images.githubusercontent.com/98044958/175823519-13414bee-7e28-4c35-80ce-d1721bbcf1c2.png)
+ 
+ 
+ Steps to execute:
+ 
+ 1. Open VacSlotbookingAPI folder and locate SlotbookingDB.sql
+ 2. Open MySQL and import SlotbookingDB.sql
+ 3. Open SlotBookingWebAPI.sln with Visual Studio 2019 
+ 4. Click on Run IIS express
+ 5. Now open VacSlotbookingAPP with Visual Studio Code 
+ 6. Run the code using ng serve -o using the terminal
+ 7. Web page will be launched with the default web browser 
+ 8. Login page for the user and admin will be displayed by deafult 
+ 9. User or Admin can login with the credentials 
+ 10. All the selections and data changes done through website will be updated simultaneously in the MySQL Database file "SlotbookingDB.sql"
 
